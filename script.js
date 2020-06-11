@@ -1,19 +1,17 @@
-let money = 10000,
-  income = 'freelance',
-  addExpenses = 'Dentist, Shop, Food',
-  deposit = true,
-  mission = 100000,
-  period = 10,
-  budgetDay = (money / 30);
+let num = 266219,
+  str = num + "",
+  arr = str.split(''),
+  sum = arr.reduce(function(acc, item) {
+    return acc * item
+  }, 1), 
+  trr = sum ** 3,
+  grr = trr + "";
+  
 
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
-console.log(addExpenses.length);
-console.log('Период равен ' + period + ' месяцев');
-console.log('Цель заработать ' + mission + ' $ usa');
-console.log(addExpenses.toLowerCase().split(', '));
-console.log(budgetDay);
+
+alert(grr.slice(0, 2));
+console.log(sum);
+
 
 
 
