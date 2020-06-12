@@ -17,7 +17,7 @@ let money = prompt('Ваш месячный доход?', '50000'),
 function getExpensesMonth(val1, val2) {
   return val1 + val2;
 }
-getExpensesMonth(amount1, amount2);
+
 
 function getAccumulatedMonth(val1, val2, val3) {
   return val1 - getExpensesMonth(val2, val3);
