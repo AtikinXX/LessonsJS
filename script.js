@@ -5,29 +5,23 @@ function first() {
 
   function second() {
     let num = +prompt("Угадай число от 1 до 100");
-    
+
     if (typeof num === 'number') {
       if (num > randomNum) {
         alert("Загаданное число меньше");
         second();
-      } else {
-        alert("Введите число!");
-        second();
-      }
-    } else if (typeof num === 'number') {
-      if (num < randomNum) {
+      } else if (num < randomNum) {
         alert("Загаданное число больше");
         second();
-      } else {
-        alert("Введите число!");
-        second();
+      } else if (num === randomNum) {
+        alert("Вы угадали!");
+        return;
       }
-    } else if (num === randomNum) {
-      alert("Вы угадали!");
-      return;
+      else {
+        alert("Введите число!");
+      }
     }
   }
-
   second();
 }
 first();
