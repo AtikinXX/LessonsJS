@@ -40,13 +40,13 @@ function getAccumulatedMonth() {
 }
 
 let getTargetMonth = function () {
-  
-  if (accumulatedMonth < 0) {
+  let target = mission / accumulatedMonth;
+  if (target < 0) {
     return 'Цель не будет достигнута';
-  } else if (accumulatedMonth >= 0){
+  } else if (target >= 0){
     return 'Цель будет достигнута';
   }
-  return mission / accumulatedMonth;
+
 };
 
 let showTypeOf = function (data) {
