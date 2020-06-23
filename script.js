@@ -15,17 +15,13 @@ let money,
   accumulatedMonth,
   budgetDay,
   missionDone,
-  expenses1,
-  expenses2,
   expensesAmount;
 
 let start = function () {
   do {
     money = prompt('Ваш месячный доход?', '50000');
-    deposit = confirm('Есть ли у вас депозит в банке?');
-    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
   }
-  while (!isNumber(money));
+  while (!isNumber(money)); 
 };
 start();
 
@@ -46,22 +42,20 @@ let appData = {
     let addExpenses = prompt('Перечислите возможные расходы через запятую');
     appData.addExpenses = addExpenses.toLowerCase().split(',');
     appData.deposit = confirm('Есть ли у вас депозит в банке?');
-    appData.expenses = prompt('Введите обязательную статью расходов?', 'Еда');
-    appData.expenses = prompt('Введите обязательную статью расходов?', 'Вода');
+    
+    for (let i = 0; i < 2; i++) {
+      let sum =0;
+      let expenses = prompt('Введите обязательную статью расходов?', "Настольные игры");
+    
+    do {
+      sum = +prompt('Во сколько это обойдется?', "4000");
+    } while (!isNumber(sum));
+
+    appData.expenses[expenses] = sum;
+  }
   },
   getExpensesMonth: function () {
-    let sum = 0;
-    for (let i = 0; i < 2; i++) {
-      if (i === 0) {
-        expenses1 = prompt('Введите обязательную статью расходов?', "Настольные игры");
-      } else if (i === 1) {
-        expenses2 = prompt('Введите обязательную статью расходов?', "Инвентарь для спорта");
-      }
-      do {
-        sum += +prompt('Во сколько это обойдется?', '4000');
-      } while (!isNumber(sum));
-    }
-    return sum;
+    
   },
   getAccumulatedMonth: function () {
     return money - expensesAmount;
@@ -98,7 +92,7 @@ accumulatedMonth = appData.getAccumulatedMonth();
 budgetDay = Math.floor(accumulatedMonth / 30);
 missionDone = Math.ceil(mission / accumulatedMonth);
 
-console.log('Расходы за месяц: ' + expensesAmount);
+console.log('Расходы за месяц: ' + appData.expensesAmount);
 console.log(appData.getStatusIncome());
-console.log(appData.getTargetMonth());
+console.log(appData.expenses);
 
